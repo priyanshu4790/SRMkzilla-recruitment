@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Meme Generator</title>
+  <link rel="stylesheet" type="text/css" href="C:\Users\Priyanshu Sharma\Desktop\kzilla\index.css">
+</head>
+<body>
+  <header>
+    <h1>Welcome To Meme Creation Land</h1>
+  </header>
+  <main>
+    
+      <form>
+        Headline:<input type="text" id="user_text1" maxlength="50" oninput="update_text1()"><p>
+      </form>
+      <form>
+        Sub-Headline:<input type="text" id="user_text2" maxlength="50" oninput="update_text2()"><p>
+      </form>
+    
+    
+      <form>
+        <input type="file" name="user_picture" onchange="update_image()"><p>
+      </form>
+
+    <div id="visual">
+     <p id="meme_picture"><img src="" height="500" width="600"></p>
+      <script type="text/javascript">
+       function update_image()
+       {
+        var img = document.querySelector('img');
+        var file = document.querySelector('input[type=file]').files[0];
+        img.src =  window.URL.createObjectURL(file);
+       }
+      </script>
+     <p id="meme_text1">Headline Here!!!</p>
+
+     
+ 
+     
+     <script type="text/javascript">
+      function update_text1()
+      {
+        var user_text1 = document.getElementById("user_text1");
+        meme_text1.innerHTML = user_text1.value;
+      }
+     </script>
+     <p id="meme_text2">Sub-Headline Here!!!</p>
+     
+     
+      <script type="text/javascript">
+       function update_text2()
+       {
+         var user_text2 = document.getElementById("user_text2");
+         meme_text2.innerHTML = user_text2.value;
+       }
+      </script>
+    </div>
+    <div>
+      <select onchange="myFunction(this);" size="11">
+     <option>xx-small</option>
+     <option>x-small</option>
+     <option>small</option>
+     <option>medium</option>
+     <option>large</option>
+     <option>x-large</option>
+     <option>xx-large</option>
+     <option>100%</option>
+     <option>250%</option>
+     <option>2cm</option>
+     
+     </select>
+     <script>
+      function myFunction(selectTag) 
+      {
+       var listValue = selectTag.options[selectTag.selectedIndex].text;
+       document.getElementById("meme_text1").style.fontSize = listValue;
+      }
+     </script>
+     
+      <select onchange="myFunction2(this);" size="11">
+      <option>xx-small</option>
+      <option>x-small</option>
+      <option>small</option>
+      <option>medium</option>
+      <option>large</option>
+      <option>x-large</option>
+      <option>xx-large</option>
+      <option>100%</option>
+      <option>250%</option>
+      <option>2cm</option>
+     </select>
+ 
+     <script>
+      function myFunction2(selectTag) 
+      {
+       var listValue = selectTag.options[selectTag.selectedIndex].text;
+       document.getElementById("meme_text2").style.fontSize = listValue;
+      }
+     </script>
+     <button id="Green">Green</button>
+     <button id="Red">Red</button>
+     <button id="white">White</button>
+     <button id="yellow">yellow</button>
+     <button id="blue">Blue</button>
+     <script>
+      document.getElementById("Green").onclick = function(){
+        document.getElementById("meme_text1").style.color = 'green';
+        document.getElementById("meme_text2").style.color = 'green';
+      }
+      document.getElementById("Red").onclick = function(){
+        document.getElementById("meme_text1").style.color = 'red';
+        document.getElementById("meme_text2").style.color = 'red';
+      }
+      document.getElementById("white").onclick = function(){
+        document.getElementById("meme_text1").style.color = 'white';
+        document.getElementById("meme_text2").style.color = 'white';
+      }
+      document.getElementById("yellow").onclick = function(){
+        document.getElementById("meme_text1").style.color = 'yellow';
+        document.getElementById("meme_text2").style.color = 'yellow';
+      }
+      document.getElementById("blue").onclick = function(){
+        document.getElementById("meme_text1").style.color = 'blue';
+        document.getElementById("meme_text2").style.color = 'blue';
+      }
+      </script>
+      
+    </div>
+    
+ 
+    
+
+      
+  </main>
+
+
+</body>
+</html>
