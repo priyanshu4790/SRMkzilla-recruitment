@@ -1,0 +1,40 @@
+
+
+#meme_picture{
+    
+    
+    border: 3px solid #73AD21;
+    margin: 0;
+    height: 500px;
+    width: 600px;
+}
+#meme_text1 {
+    background-color: transparent;
+    font-family: "Impact";
+    text-shadow: black 0px 0px 10px;
+    width: 600px;
+    position: absolute;
+    top: 204px;
+    border: 3px solid #73AD21;
+    text-align:center; 
+    margin: 0;
+}
+#meme_text2 {
+    background-color: transparent;
+    font-family: "Impact";
+    text-shadow: black 0px 0px 10px;
+    width: 600px;
+    position: relative;
+    bottom: 67px;
+    border: 3px solid #73AD21;
+    text-align:center; 
+    margin: 0;
+
+    
+    
+   
+    
+    
+
+
+}
