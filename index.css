@@ -1,21 +1,67 @@
+body
+{
+	margin: 2%;
+	background-color: #483E6AD4;
+	
 
+}
+header
+{
+	background-color: #AA2345;
+	
+	background-size: 100% ;
+	padding: 1%;
+	margin: 1%;
+	text-align: center;
+}
 
-#meme_picture{
+#enter
+{
+	font-size: 160%;
+	background-color: #ADC45F;
+	display: inline-block;
+	float: left;
+	width:38%;
+	padding: 6.6% 5%;
+	margin:1%;
+
+	
+}
+#exit
+{
+	background-color: #DDD456;
+	display:inline-block;
+	float: left;
+    width:38%;
+    padding: 5%;
+    margin:1%;
     
-    
-    border: 3px solid #73AD21;
-    margin: 0;
-    height: 500px;
-    width: 600px;
+	
+}
+#visuals{
+	width: 600px;
+	height: 500px;
+	position: relative;
+
+}
+#myCanvas{
+
+    background-color: #FFFFFF;
+    z-index: -1;
 }
 #meme_text1 {
     background-color: transparent;
     font-family: "Impact";
+    font-size: 20; 
     text-shadow: black 0px 0px 10px;
-    width: 600px;
-    position: absolute;
-    top: 204px;
-    border: 3px solid #73AD21;
+    width: 554.80px;
+   
+    position:absolute;
+    top:10%;
+    
+    word-wrap: break-word;
+
+    
     text-align:center; 
     margin: 0;
 }
@@ -23,18 +69,31 @@
     background-color: transparent;
     font-family: "Impact";
     text-shadow: black 0px 0px 10px;
-    width: 600px;
-    position: relative;
-    bottom: 67px;
-    border: 3px solid #73AD21;
-    text-align:center; 
+    width: 554.80px;
+    font-size: 20; 
+    
+    position:absolute;
+    bottom:0%;
+    text-align:center;
+    
+    word-wrap: break-word; 
     margin: 0;
-
-    
-    
-   
-    
-    
-
-
+}  
+#Green
+{
+	background-color: green;
 }
+#yellow
+{
+	background-color: yellow;
+}
+#white{
+	background-color: white;
+}
+#Red{
+	background-color: red;
+}
+#blue{
+	background-color: blue;
+}
+
