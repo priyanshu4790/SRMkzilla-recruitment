@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Meme Generator</title>
-  <link rel="stylesheet" type="text/css" href="C:\Users\Priyanshu Sharma\Desktop\kzilla\index.css">
+  <link rel="stylesheet" type="text/css" href="SRMkzilla-recruitment\index.css">
+  <script src="SRMkzilla-recruitment\FileSaver.min.js"></script>
+  <script src="SRMkzilla-recruitmentdom-to-image.min.js"></script>
+  
 </head>
 <body>
   <header>
@@ -11,68 +14,61 @@
   </header>
   <main>
     
+    <div id="enter">
       <form>
-        Headline:<input type="text" id="user_text1" maxlength="50" oninput="update_text1()"><p>
+        Headline:<input type="text" id="user_text1" maxlength="100" oninput="update_text1()"><p>
       </form>
+      Move Headline:<input type="range" name="spin" id="spin1" step="1" value="0" min="0" max="80%"  oninput="move1()" style="width:50%;"/>
+      <br>
+      <br>
+      <script >
+        function move1(){
+        var x = document.getElementById("spin1").value;
+        var image = document.getElementById("meme_text1").style;
+        image.marginTop=x+"px";
+       }
+      </script>
+
       <form>
-        Sub-Headline:<input type="text" id="user_text2" maxlength="50" oninput="update_text2()"><p>
+        Sub-Headline:<input type="text" id="user_text2" maxlength="100" oninput="update_text2()"><p>
       </form>
-    
-   
+       Move Sub-Headline:<input type="range" name="spin" id="spin2" step="1" value="0" min="0%" max="80%"  oninput="move2()" style="width:50%;"/>
+       <br>
+      <script >
+        function move2(){
+        var x = document.getElementById("spin2").value;
+        var image = document.getElementById("meme_text2").style;
+        image.marginBottom=x+"px";
+       }
+      </script>
+      
       <form>
         <input type="file" name="user_picture" onchange="update_image()"><p>
       </form>
-      
-        
-      
-
-    <div id="visual">
-     
-     <p id="meme_picture"><img src="" height="500" width="600"></p>
-      <script type="text/javascript">
+      <img id="meme_picture" height="75" width="75" style="border:1px solid black" ;><br>
+      <button onclick="myCanvas()">Upload</button>
+      <script >
        function update_image()
        {
         var img = document.querySelector('img');
         var file = document.querySelector('input[type=file]').files[0];
         img.src =  window.URL.createObjectURL(file);
+
        }
       </script>
 
-     <p id="meme_text1">Headline Here!!!</p>
-     <script type="text/javascript">
-      function update_text1()
-      {
-        var user_text1 = document.getElementById("user_text1");
-        meme_text1.innerHTML = user_text1.value;
-      }
-     </script>
-     <p id="meme_text2">Sub-Headline Here!!!</p>
-     
-     
-      <script type="text/javascript">
-       function update_text2()
-       {
-         var user_text2 = document.getElementById("user_text2");
-         meme_text2.innerHTML = user_text2.value;
-       }
-      </script>
-      
-    </div>
-    
-    <div>
-      <select onchange="myFunction(this);" size="11">
-     <option>xx-small</option>
-     <option>x-small</option>
-     <option>small</option>
-     <option>medium</option>
-     <option>large</option>
-     <option>x-large</option>
-     <option>xx-large</option>
+     <form> 
+     <label>Headline Fontsize :</label>
+     <select onchange="myFunction(this);" >
+     <option>25%</option>
+     <option>50%</option>
+     <option>75%</option>
      <option>100%</option>
-     <option>250%</option>
-     <option>2cm</option>
-     
+     <option>125%</option>
+     <option>150%</option>
+     <option>175%</option>
      </select>
+     </form>
      <script>
       function myFunction(selectTag) 
       {
@@ -80,19 +76,19 @@
        document.getElementById("meme_text1").style.fontSize = listValue;
       }
      </script>
-     
-      <select onchange="myFunction2(this);" size="11">
-      <option>xx-small</option>
-      <option>x-small</option>
-      <option>small</option>
-      <option>medium</option>
-      <option>large</option>
-      <option>x-large</option>
-      <option>xx-large</option>
-      <option>100%</option>
-      <option>250%</option>
-      <option>2cm</option>
+     <form>
+     <label >Sub-Headline Fontsize :</label>
+     <select onchange="myFunction2(this);"  >
+     <option>25%</option>
+     <option>50%</option>
+     <option>75%</option>
+     <option>100%</option>
+     <option>125%</option>
+     <option>150%</option>
+     <option>175%</option>
+      
      </select>
+     </form>
  
      <script>
       function myFunction2(selectTag) 
@@ -101,10 +97,11 @@
        document.getElementById("meme_text2").style.fontSize = listValue;
       }
      </script>
+     <label >Font Color</label>
      <button id="Green">Green</button>
      <button id="Red">Red</button>
      <button id="white">White</button>
-     <button id="yellow">yellow</button>
+     <button id="yellow">Yellow</button>
      <button id="blue">Blue</button>
      <script>
       document.getElementById("Green").onclick = function(){
@@ -128,15 +125,60 @@
         document.getElementById("meme_text2").style.color = 'blue';
       }
       </script>
-
-      
+      <br>
+      <button id="final">Save Image</button>
     </div>
+    <div id="exit"> 
+      <div id="visuals">
+      <p id="meme_text1">Headline Here!!!</p>
+      <script type="text/javascript">
+      function update_text1()
+      {
+        var user_text1 = document.getElementById("user_text1");
+        meme_text1.innerHTML = user_text1.value;
+      }
+      </script>
+      <p id="meme_text2">Sub-Headline Here!!!</p>
+     
+     
+      <script type="text/javascript">
+       function update_text2()
+       {
+         var user_text2 = document.getElementById("user_text2");
+         meme_text2.innerHTML = user_text2.value;
+       }
+      </script>
+      <canvas id="myCanvas" width="554.80" height="580.95" style="border:2px solid black;">Your browser does not support the HTML canvas tag.</canvas>
     
- 
+    <script>
+      function myCanvas() 
+      {
+       var c = document.getElementById("myCanvas");
+       var ctx = c.getContext("2d");
+       var img = document.getElementById("meme_picture");
+       ctx.drawImage(img,0,0,554.80,580.95);
+      }
+    </script>
+  </div>
+  <br>
+  <br>
+   
+   
+     
+     <script>
+       var node = document.getElementById('visuals');
+       var btn = document.getElementById('final');
+        btn.onclick = function(){
+        
+          domtoimage.toBlob(document.getElementById('visuals')).then(function(blob){
+           window.saveAs(blob, 'meme.png');
+        });
+       }
+     </script>
+   </div>
     
 
-      
-  </main>
+    </main>
 
 
 </body>
